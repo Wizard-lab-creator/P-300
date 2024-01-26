@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controlled Humidity Demo</title>
+</head>
+<body>
+
+    <img id="plantImage" src="" alt="Plant Image">
+    <p id="humidityMessage"></p>
+
+    <script>
+        function refreshPage() {
+            location.reload();
+        }
+
+        // Simulating humidity data, you would replace this with real data from the wokwi temperature sensor
+        var humidityData = 50;
+
+        if (humidityData >= 5 && humidityData <= 35) {
+            document.getElementById("plantImage").src = "url_to_image_for_okay_humidity.jpg";
+            document.getElementById("humidityMessage").textContent = "Humidity is OK. I can grow";
+        } else if (humidityData >= 36 && humidityData <= 75) {
+            document.getElementById("plantImage").src = "url_to_image_for_good_humidity.jpg";
+            document.getElementById("humidityMessage").textContent = "Humidity is GOOD. I feel powerful";
+        } else if (humidityData >= 76 && humidityData <= 100) {
+            document.getElementById("plantImage").src = "url_to_image_for_high_humidity.jpg";
+            document.getElementById("humidityMessage").textContent = "Humidity is HIGH. I cannot grow";
+        }
+
+        // Add the following line if you want the page to automatically refresh
+        // setInterval(refreshPage, 60000); // Refresh every 60 seconds (adjust as needed)
+    </script>
+
+</body>
+</html>
